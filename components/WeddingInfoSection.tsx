@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Navigation } from "lucide-react";
 
 const families = [
   {
@@ -21,12 +22,14 @@ const weddingDays = [
     date: "Thứ Ba, 26.05.2026",
     time: "Ngày vui bên gia đình cô dâu",
     place: "Tư gia nhà nữ",
+    mapUrl: "https://goo.gl/maps/wypav7zmNijA7qd9A",
   },
   {
     label: "Nhà Nam",
     date: "Thứ Tư, 27.05.2026",
     time: "Hôn lễ lúc 09:00, tiệc chung vui lúc 10:30",
     place: "Sân Bóng Cồn Độ, thôn Thu Thừ, xã Trường Ninh, Quảng Trị",
+    mapUrl: "https://goo.gl/maps/2VB27mBendNEVVcU8",
   },
 ];
 
@@ -194,6 +197,15 @@ export default function WeddingInfoSection() {
                   <p className="mt-2 text-sm leading-6 text-stone-500">
                     {event.place}
                   </p>
+                  <a
+                    href={event.mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rose-500 transition hover:text-rose-600"
+                  >
+                    Mở Google Maps
+                    <Navigation size={16} />
+                  </a>
                 </div>
               ))}
             </div>
