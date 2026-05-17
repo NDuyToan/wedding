@@ -19,13 +19,14 @@ export default function CoupleSection() {
             alt="Toản"
             width={160}
             height={160}
-            className="w-40 h-40 rounded-full object-cover mx-auto mb-6"
+            className="w-40 h-40 rounded-full object-cover object-top mx-auto mb-6"
           />
 
           <h2 className="text-3xl font-bold mb-4">Chú Rể</h2>
 
           <p className="text-gray-600 leading-8">
-            Cảm ơn bạn đã hiện diện và cùng chúng tôi lưu giữ khoảnh khắc đáng nhớ này.
+            Cảm ơn bạn đã hiện diện và cùng chúng tôi lưu giữ khoảnh khắc đáng
+            nhớ này.
           </p>
         </motion.div>
 
@@ -41,13 +42,14 @@ export default function CoupleSection() {
             alt="Dung"
             width={160}
             height={160}
-            className="w-40 h-40 rounded-full object-cover mx-auto mb-6"
+            className="w-40 h-40 rounded-full object-cover object-top mx-auto mb-6"
           />
 
           <h2 className="text-3xl font-bold mb-4">Cô Dâu</h2>
 
           <p className="text-gray-600 leading-8">
-            Sự yêu thương và lời chúc của bạn là món quà quý giá trong ngày vui của chúng tôi.
+            Sự yêu thương và lời chúc của bạn là món quà quý giá trong ngày vui
+            của chúng tôi.
           </p>
         </motion.div>
       </div>
