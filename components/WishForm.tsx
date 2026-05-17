@@ -3,49 +3,102 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+const WISHES_TABLE = "wishes";
+
 type Wish = {
   id: string;
   name: string;
   message: string;
-  createdAt: string;
+  createdAt: string | null;
 };
 
-const defaultWishes: Wish[] = [
-  {
-    id: "default-1",
-    name: "Gia đình thân mến",
-    message:
-      "Chúc Toản và Dung luôn yêu thương, đồng hành và có thật nhiều ngày tháng bình an bên nhau.",
-    createdAt: "Lời chúc đầu tiên",
-  },
-];
+type WishRow = {
+  id: string;
+  name: string;
+  message: string;
+  created_at: string | null;
+};
+
+function mapWish(row: WishRow): Wish {
+  return {
+    id: row.id,
+    name: row.name,
+    message: row.message,
+    createdAt: row.created_at,
+  };
+}
+
+function formatWishDate(value: string | null) {
+  if (!value) {
+    return "";
+  }
+
+  return new Intl.DateTimeFormat("vi-VN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(new Date(value));
+}
+
+function getSupabaseHeaders() {
+  if (!SUPABASE_KEY) {
+    throw new Error("Thiếu NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY");
+  }
+
+  return {
+    apikey: SUPABASE_KEY,
+    authorization: `Bearer ${SUPABASE_KEY}`,
+    "content-type": "application/json",
+  };
+}
+
+function getSupabaseEndpoint(query = "") {
+  if (!SUPABASE_URL) {
+    throw new Error("Thiếu NEXT_PUBLIC_SUPABASE_URL");
+  }
+
+  return `${SUPABASE_URL}/rest/v1/${WISHES_TABLE}${query}`;
+}
 
 export default function WishForm() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [wishes, setWishes] = useState<Wish[]>(() => {
-    if (typeof window === "undefined") {
-      return defaultWishes;
-    }
-
-    const savedWishes = window.localStorage.getItem("wedding-wishes");
-
-    if (!savedWishes) {
-      return defaultWishes;
-    }
-
-    try {
-      return JSON.parse(savedWishes) as Wish[];
-    } catch {
-      return defaultWishes;
-    }
-  });
+  const [wishes, setWishes] = useState<Wish[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    window.localStorage.setItem("wedding-wishes", JSON.stringify(wishes));
-  }, [wishes]);
+    const loadWishes = async () => {
+      try {
+        const response = await fetch(
+          getSupabaseEndpoint("?select=id,name,message,created_at&order=created_at.desc"),
+          {
+            headers: getSupabaseHeaders(),
+          },
+        );
 
-  const handleSubmit = (e: React.FormEvent) => {
+        if (!response.ok) {
+          throw new Error("Không thể tải sổ lời chúc");
+        }
+
+        const rows = (await response.json()) as WishRow[];
+        setWishes(rows.map(mapWish));
+      } catch {
+        setErrorMessage("Chưa tải được lời chúc. Vui lòng thử lại sau.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    void loadWishes();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const trimmedName = name.trim();
@@ -55,22 +108,43 @@ export default function WishForm() {
       return;
     }
 
-    const newWish: Wish = {
-      id: crypto.randomUUID(),
-      name: trimmedName,
-      message: trimmedMessage,
-      createdAt: new Intl.DateTimeFormat("vi-VN", {
-        hour: "2-digit",
-        minute: "2-digit",
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      }).format(new Date()),
-    };
+    setIsSubmitting(true);
+    setErrorMessage("");
 
-    setWishes((currentWishes) => [newWish, ...currentWishes]);
-    setName("");
-    setMessage("");
+    try {
+      const response = await fetch(
+        getSupabaseEndpoint("?select=id,name,message,created_at"),
+        {
+          method: "POST",
+          headers: {
+            ...getSupabaseHeaders(),
+            prefer: "return=representation",
+          },
+          body: JSON.stringify({
+            name: trimmedName,
+            message: trimmedMessage,
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error("Không thể gửi lời chúc");
+      }
+
+      const rows = (await response.json()) as WishRow[];
+      const newWish = rows[0];
+
+      if (newWish) {
+        setWishes((currentWishes) => [mapWish(newWish), ...currentWishes]);
+      }
+
+      setName("");
+      setMessage("");
+    } catch {
+      setErrorMessage("Chưa gửi được lời chúc. Vui lòng thử lại sau.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -104,6 +178,7 @@ export default function WishForm() {
                 placeholder="Tên của bạn"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
+                maxLength={100}
                 required
                 className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-blue-500"
               />
@@ -112,6 +187,7 @@ export default function WishForm() {
                 placeholder="Lời chúc gửi đến cô dâu chú rể"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
+                maxLength={500}
                 rows={5}
                 required
                 className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-blue-500"
@@ -119,37 +195,50 @@ export default function WishForm() {
 
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-xl font-semibold transition"
+                disabled={isSubmitting}
+                className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 text-white py-4 rounded-xl font-semibold transition"
               >
-                Gửi lời chúc
+                {isSubmitting ? "Đang gửi..." : "Gửi lời chúc"}
               </button>
+
+              {errorMessage && (
+                <p className="text-sm leading-6 text-red-500">{errorMessage}</p>
+              )}
             </div>
           </form>
 
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10">
+          <div className="flex h-[620px] flex-col bg-white rounded-3xl shadow-xl p-8 md:p-10">
             <div className="mb-8 flex items-end justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">
                   Sổ lời chúc
                 </p>
-                <h3 className="mt-3 text-2xl font-bold text-gray-900">
-                  {wishes.length} lời chúc
-                </h3>
               </div>
             </div>
 
-            <div className="max-h-[520px] space-y-4 overflow-y-auto pr-2">
-              {wishes.map((wish) => (
-                <article key={wish.id} className="rounded-2xl bg-blue-50 p-5">
-                  <div className="mb-3 flex items-center justify-between gap-4">
-                    <h4 className="font-bold text-gray-900">{wish.name}</h4>
-                    <time className="shrink-0 text-xs text-gray-500">
-                      {wish.createdAt}
-                    </time>
-                  </div>
-                  <p className="leading-7 text-gray-600">{wish.message}</p>
-                </article>
-              ))}
+            <div className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-2">
+              {isLoading ? (
+                <p className="rounded-2xl bg-blue-50 p-5 text-gray-600">
+                  Đang tải lời chúc...
+                </p>
+              ) : wishes.length === 0 ? (
+                <p className="rounded-2xl bg-blue-50 p-5 text-gray-600">
+                  Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc đến
+                  cô dâu chú rể.
+                </p>
+              ) : (
+                wishes.map((wish) => (
+                  <article key={wish.id} className="rounded-2xl bg-blue-50 p-5">
+                    <div className="mb-3 flex items-center justify-between gap-4">
+                      <h4 className="font-bold text-gray-900">{wish.name}</h4>
+                      <time className="shrink-0 text-xs text-gray-500">
+                        {formatWishDate(wish.createdAt)}
+                      </time>
+                    </div>
+                    <p className="leading-7 text-gray-600">{wish.message}</p>
+                  </article>
+                ))
+              )}
             </div>
           </div>
         </motion.div>
