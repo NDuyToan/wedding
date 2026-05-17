@@ -74,7 +74,7 @@ export default function WishForm() {
   };
 
   return (
-    <section className="py-24 px-6 bg-pink-50">
+    <section className="py-24 px-6 bg-blue-50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">Gửi Lời Chúc</h2>
 
@@ -90,7 +90,7 @@ export default function WishForm() {
             className="bg-white rounded-3xl shadow-xl p-8 md:p-10"
           >
             <div className="mb-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-pink-500">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">
                 Lời chúc của bạn
               </p>
               <p className="mt-3 text-gray-600 leading-7">
@@ -105,7 +105,7 @@ export default function WishForm() {
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 required
-                className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-pink-500"
+                className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-blue-500"
               />
 
               <textarea
@@ -114,12 +114,12 @@ export default function WishForm() {
                 onChange={(event) => setMessage(event.target.value)}
                 rows={5}
                 required
-                className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-pink-500"
+                className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-blue-500"
               />
 
               <button
                 type="submit"
-                className="w-full bg-pink-500 hover:bg-pink-600 text-white py-4 rounded-xl font-semibold transition"
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-xl font-semibold transition"
               >
                 Gửi lời chúc
               </button>
@@ -129,7 +129,7 @@ export default function WishForm() {
           <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10">
             <div className="mb-8 flex items-end justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-pink-500">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">
                   Sổ lời chúc
                 </p>
                 <h3 className="mt-3 text-2xl font-bold text-gray-900">
@@ -140,7 +140,7 @@ export default function WishForm() {
 
             <div className="max-h-[520px] space-y-4 overflow-y-auto pr-2">
               {wishes.map((wish) => (
-                <article key={wish.id} className="rounded-2xl bg-pink-50 p-5">
+                <article key={wish.id} className="rounded-2xl bg-blue-50 p-5">
                   <div className="mb-3 flex items-center justify-between gap-4">
                     <h4 className="font-bold text-gray-900">{wish.name}</h4>
                     <time className="shrink-0 text-xs text-gray-500">

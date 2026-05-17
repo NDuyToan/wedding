@@ -12,7 +12,7 @@ export default function CoupleSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-pink-50 rounded-3xl p-10 text-center shadow-lg"
+          className="bg-blue-50 rounded-3xl p-10 text-center shadow-lg"
         >
           <Image
             src="/toan.jpg"
@@ -35,7 +35,7 @@ export default function CoupleSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-pink-50 rounded-3xl p-10 text-center shadow-lg"
+          className="bg-blue-50 rounded-3xl p-10 text-center shadow-lg"
         >
           <Image
             src="/dung.jpg"
