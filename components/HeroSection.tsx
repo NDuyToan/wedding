@@ -34,12 +34,6 @@ export default function HeroSection() {
         <p className="mx-auto mb-8 max-w-2xl text-lg font-light tracking-[0.22em] text-blue-50 md:text-2xl">
           Trân trọng kính mời bạn đến chung vui cùng chúng tôi
         </p>
-
-        <div className="floating inline-block">
-          <div className="border border-white/60 bg-white/20 px-8 py-4 text-sm font-semibold uppercase tracking-[0.32em] text-white shadow-2xl backdrop-blur-md md:text-base">
-            27.05.2026
-          </div>
-        </div>
       </motion.div>
     </section>
   );
