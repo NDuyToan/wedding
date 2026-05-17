@@ -6,6 +6,7 @@ import WishForm from "@/components/WishForm";
 import Footer from "@/components/Footer";
 import OpeningInvitation from "@/components/OpeningInvitation";
 import WeddingInfoSection from "@/components/WeddingInfoSection";
+import GiftBoxSection from "@/components/GiftBoxSection";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
 
         <GallerySection />
         <WishForm />
+        <GiftBoxSection />
         <Footer />
       </main>
     </>
