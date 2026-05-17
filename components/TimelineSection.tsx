@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const events = [
   {
-    time: "08:00 AM",
-    title: "Wedding Ceremony",
+    time: "08:00",
+    title: "Lễ thành hôn",
   },
   {
-    time: "11:00 AM",
-    title: "Wedding Party",
+    time: "11:00",
+    title: "Tiệc mừng",
   },
   {
-    time: "06:00 PM",
-    title: "Dinner Celebration",
+    time: "18:00",
+    title: "Tiệc tối thân mật",
   },
 ];
 
@@ -22,7 +22,7 @@ export default function TimelineSection() {
     <section className="py-24 px-6 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-16">
-          Wedding Timeline
+          Lịch Trình Ngày Cưới
         </h2>
 
         <div className="space-y-8">

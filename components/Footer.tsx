@@ -4,7 +4,7 @@ export default function Footer() {
       <h2 className="text-3xl font-bold mb-4">Toản & Dung</h2>
 
       <p className="text-gray-400">
-        Thank you for being part of our special day.
+        Cảm ơn bạn đã đến chung vui trong ngày đặc biệt của chúng tôi.
       </p>
     </footer>
   );

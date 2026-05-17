@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function CoupleSection() {
   return (
@@ -13,16 +14,18 @@ export default function CoupleSection() {
           viewport={{ once: true }}
           className="bg-pink-50 rounded-3xl p-10 text-center shadow-lg"
         >
-          <img
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-            alt="groom"
+          <Image
+            src="/toan.jpg"
+            alt="Toản"
+            width={160}
+            height={160}
             className="w-40 h-40 rounded-full object-cover mx-auto mb-6"
           />
 
-          <h2 className="text-3xl font-bold mb-4">The Groom</h2>
+          <h2 className="text-3xl font-bold mb-4">Chú Rể</h2>
 
           <p className="text-gray-600 leading-8">
-            A beautiful love story begins with two hearts becoming one.
+            Cảm ơn bạn đã hiện diện và cùng chúng tôi lưu giữ khoảnh khắc đáng nhớ này.
           </p>
         </motion.div>
 
@@ -33,16 +36,18 @@ export default function CoupleSection() {
           viewport={{ once: true }}
           className="bg-pink-50 rounded-3xl p-10 text-center shadow-lg"
         >
-          <img
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
-            alt="bride"
+          <Image
+            src="/dung.jpg"
+            alt="Dung"
+            width={160}
+            height={160}
             className="w-40 h-40 rounded-full object-cover mx-auto mb-6"
           />
 
-          <h2 className="text-3xl font-bold mb-4">The Bride</h2>
+          <h2 className="text-3xl font-bold mb-4">Cô Dâu</h2>
 
           <p className="text-gray-600 leading-8">
-            Together we create memories that last forever.
+            Sự yêu thương và lời chúc của bạn là món quà quý giá trong ngày vui của chúng tôi.
           </p>
         </motion.div>
       </div>
