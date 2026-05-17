@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const events = [
   {
-    time: "08:00",
-    title: "Lễ thành hôn",
+    time: "26.05",
+    title: "Ngày vui bên nhà nữ",
   },
   {
-    time: "11:00",
-    title: "Tiệc mừng",
+    time: "09:00",
+    title: "Lễ thành hôn tại tư gia nhà nam",
   },
   {
-    time: "18:00",
-    title: "Tiệc tối thân mật",
+    time: "10:30",
+    title: "Tiệc chung vui tại Sân Bóng Cồn Độ",
   },
 ];
 
