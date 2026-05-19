@@ -120,13 +120,13 @@ export default function WeddingInfoSection() {
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-[#8eaeba]">
                 Cô dâu & chú rể
               </p>
-              <p className="wedding-script text-5xl leading-tight text-[#8eaeba]">
+              <p className="wedding-script text-4xl leading-tight text-[#8eaeba] xl:text-5xl ">
                 Nguyễn Duy Toản
               </p>
               <p className="my-3 text-sm uppercase tracking-[0.4em] text-stone-400">
                 cùng
               </p>
-              <p className="wedding-script text-5xl leading-tight text-[#8eaeba]">
+              <p className="wedding-script text-4xl leading-tight text-[#8eaeba] xl:text-5xl">
                 Trương Thị Dung
               </p>
             </motion.div>

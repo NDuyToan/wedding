@@ -91,7 +91,7 @@ export default function GiftBoxSection() {
                 <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#8eaeba]">
                   Hộp mừng cưới
                 </p>
-                <h3 className="mt-3 text-3xl font-bold text-stone-800">
+                <h3 className="mt-3 text-2xl font-bold text-stone-800 xl:text-3xl">
                   Thông Tin Tài Khoản
                 </h3>
               </div>
