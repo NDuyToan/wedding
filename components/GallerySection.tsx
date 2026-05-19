@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  "/HILI9388.jpg",
-  "/HILI9638.jpg",
+  "/HILI9532.jpg",
   "/HILI9960.jpg",
+  "/HILI9638.jpg",
   "/HILI9999.jpg",
 ];
 
