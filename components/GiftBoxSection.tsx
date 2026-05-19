@@ -105,7 +105,7 @@ export default function GiftBoxSection() {
                       key={account.accountNumber}
                       className="border border-[#e2e7ec] bg-[#ffffff] p-5"
                     >
-                      <div className="relative mx-auto aspect-[3/4] w-full max-w-[260px] bg-[#f9f9f9]">
+                      <div className="relative mx-auto aspect-3/4 w-full max-w-65 bg-[#f9f9f9]">
                         <Image
                           src={account.image}
                           alt={`Mã QR tài khoản ${account.name}`}
@@ -134,7 +134,7 @@ export default function GiftBoxSection() {
                             <span className="font-semibold text-stone-800">
                               Số tài khoản:
                             </span>{" "}
-                            <span className="font-bold tracking-[0.1em] text-[#567d8c]">
+                            <span className="font-bold tracking-widest text-[#567d8c]">
                               {account.accountNumber}
                             </span>
                           </p>
