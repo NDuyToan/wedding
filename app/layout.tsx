@@ -29,9 +29,52 @@ const bellotaText = Bellota_Text({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://wedding.nguyenduytoan.io.vn";
+const siteTitle = "Thiệp cưới Toản & Dung";
+const siteDescription =
+  "Trân trọng kính mời bạn đến chung vui trong ngày cưới của Toản và Dung. Xem thông tin lễ cưới, lịch trình, album ảnh và gửi lời chúc tại đây.";
+
 export const metadata: Metadata = {
-  title: "Thiệp cưới Toản & Dung",
-  description: "Ngày vui của Toản và Dung",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: `%s | ${siteTitle}`,
+  },
+  description: siteDescription,
+  applicationName: siteTitle,
+  authors: [{ name: "Toản & Dung" }],
+  creator: "Toản & Dung",
+  publisher: "Toản & Dung",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    url: "/",
+    siteName: siteTitle,
+    title: siteTitle,
+    description: siteDescription,
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 2048,
+        height: 1366,
+        alt: "Thiệp cưới Toản và Dung",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/twitter-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
