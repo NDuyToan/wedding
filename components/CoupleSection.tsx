@@ -12,7 +12,7 @@ export default function CoupleSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-blue-50 rounded-3xl p-10 text-center shadow-lg"
+          className="bg-[#f9f9f9] rounded-3xl p-10 text-center shadow-lg"
         >
           <Image
             src="/toan.jpg"
@@ -22,11 +22,14 @@ export default function CoupleSection() {
             className="w-40 h-40 rounded-full object-cover object-top mx-auto mb-6"
           />
 
-          <h2 className="text-3xl font-bold mb-4">Chú Rể</h2>
+          <h2 className="text-3xl font-bold mb-4">Duy Toản</h2>
 
           <p className="text-gray-600 leading-8">
-            Cảm ơn bạn đã hiện diện và cùng chúng tôi lưu giữ khoảnh khắc đáng
-            nhớ này.
+            Xin chào mọi người! Mình là Toản — một chàng kỹ sư phần mềm yêu
+            thích công nghệ, sống chân thành và khá ít nói. Mình tin rằng trong
+            cuộc sống cũng như trong lập trình, sự kiên nhẫn và chân thành luôn
+            là nền tảng quan trọng nhất. Với mình, gia đình giống như “hệ thống
+            ổn định” để mỗi ngày đều có nơi quay về, yêu thương và sẻ chia.
           </p>
         </motion.div>
 
@@ -35,7 +38,7 @@ export default function CoupleSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-blue-50 rounded-3xl p-10 text-center shadow-lg"
+          className="bg-[#f9f9f9] rounded-3xl p-10 text-center shadow-lg"
         >
           <Image
             src="/dung.jpg"
@@ -45,11 +48,14 @@ export default function CoupleSection() {
             className="w-40 h-40 rounded-full object-cover object-top mx-auto mb-6"
           />
 
-          <h2 className="text-3xl font-bold mb-4">Cô Dâu</h2>
+          <h2 className="text-3xl font-bold mb-4">Trương Dung</h2>
 
           <p className="text-gray-600 leading-8">
-            Sự yêu thương và lời chúc của bạn là món quà quý giá trong ngày vui
-            của chúng tôi.
+            Còn mình là Dung — một cô nàng kiểm thử phần mềm nhẹ nhàng và giàu
+            tình cảm. Nếu anh ấy thích xây dựng mọi thứ từ những dòng code, thì
+            mình lại thích chăm chút để mọi điều trở nên trọn vẹn hơn. Mình luôn
+            trân trọng những điều giản dị, sự quan tâm chân thành và những
+            khoảnh khắc bình yên bên gia đình.
           </p>
         </motion.div>
       </div>

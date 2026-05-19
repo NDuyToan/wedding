@@ -35,7 +35,7 @@ export default function TimelineSection() {
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-md p-6 flex justify-between items-center"
             >
-              <span className="text-blue-500 font-bold text-lg">
+              <span className="text-[#8eaeba] font-bold text-lg">
                 {event.time}
               </span>
 

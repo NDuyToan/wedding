@@ -14,7 +14,7 @@ export default function HeroSection() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-[#1e3a8a]/20 to-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-[#3d5963]/20 to-black/55" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2),transparent_48%)]" />
 
       <motion.div
@@ -23,7 +23,7 @@ export default function HeroSection() {
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 mx-auto max-w-5xl"
       >
-        <p className="mb-5 text-xs font-medium uppercase tracking-[0.6em] text-blue-100 md:text-sm">
+        <p className="mb-5 text-xs font-medium uppercase tracking-[0.6em] text-[#e2e7ec] md:text-sm">
           Thiệp Mời Cưới
         </p>
 
@@ -31,7 +31,7 @@ export default function HeroSection() {
           Toản & Dung
         </h1>
 
-        <p className="mx-auto mb-8 max-w-2xl text-lg font-light tracking-[0.22em] text-blue-50 md:text-2xl">
+        <p className="mx-auto mb-8 max-w-2xl text-lg font-light tracking-[0.22em] text-[#f9f9f9] md:text-2xl">
           Trân trọng kính mời bạn đến chung vui cùng chúng tôi
         </p>
       </motion.div>

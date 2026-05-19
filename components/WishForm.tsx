@@ -148,7 +148,7 @@ export default function WishForm() {
   };
 
   return (
-    <section className="py-24 px-6 bg-blue-50">
+    <section className="py-24 px-6 bg-[#f9f9f9]">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">Gửi Lời Chúc</h2>
 
@@ -164,7 +164,7 @@ export default function WishForm() {
             className="bg-white rounded-3xl shadow-xl p-8 md:p-10"
           >
             <div className="mb-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#8eaeba]">
                 Lời chúc của bạn
               </p>
               <p className="mt-3 text-gray-600 leading-7">
@@ -180,7 +180,7 @@ export default function WishForm() {
                 onChange={(event) => setName(event.target.value)}
                 maxLength={100}
                 required
-                className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-blue-500"
+                className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-[#8eaeba]"
               />
 
               <textarea
@@ -190,13 +190,13 @@ export default function WishForm() {
                 maxLength={500}
                 rows={5}
                 required
-                className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-blue-500"
+                className="w-full border border-gray-300 rounded-xl px-4 py-4 outline-none focus:border-[#8eaeba]"
               />
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 text-white py-4 rounded-xl font-semibold transition"
+                className="w-full bg-[#8eaeba] hover:bg-[#567d8c] disabled:bg-[#b8cbd3] text-white py-4 rounded-xl font-semibold transition"
               >
                 {isSubmitting ? "Đang gửi..." : "Gửi lời chúc"}
               </button>
@@ -210,7 +210,7 @@ export default function WishForm() {
           <div className="flex h-[620px] flex-col bg-white rounded-3xl shadow-xl p-8 md:p-10">
             <div className="mb-8 flex items-end justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#8eaeba]">
                   Sổ lời chúc
                 </p>
               </div>
@@ -218,17 +218,17 @@ export default function WishForm() {
 
             <div className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-2">
               {isLoading ? (
-                <p className="rounded-2xl bg-blue-50 p-5 text-gray-600">
+                <p className="rounded-2xl bg-[#f9f9f9] p-5 text-gray-600">
                   Đang tải lời chúc...
                 </p>
               ) : wishes.length === 0 ? (
-                <p className="rounded-2xl bg-blue-50 p-5 text-gray-600">
+                <p className="rounded-2xl bg-[#f9f9f9] p-5 text-gray-600">
                   Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc đến
                   cô dâu chú rể.
                 </p>
               ) : (
                 wishes.map((wish) => (
-                  <article key={wish.id} className="rounded-2xl bg-blue-50 p-5">
+                  <article key={wish.id} className="rounded-2xl bg-[#f9f9f9] p-5">
                     <div className="mb-3 flex items-center justify-between gap-4">
                       <h4 className="font-bold text-gray-900">{wish.name}</h4>
                       <time className="shrink-0 text-xs text-gray-500">
