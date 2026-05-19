@@ -40,7 +40,7 @@ export default function OpeningInvitation() {
             >
               <span className="absolute -inset-8 rounded-full bg-[#e2e7ec]/20 blur-3xl" />
               <span className="relative block rounded-[10px] border border-white/70 bg-[#f9f9f9] p-4 shadow-2xl shadow-black/30">
-                <span className="block rounded-[8px] border border-[#cbd7dd]/80 p-8 text-center">
+                <span className="block rounded-lg border border-[#cbd7dd]/80 p-8 text-center">
                   <span className="mb-7 block text-[11px] font-medium uppercase tracking-[0.5em] text-[#8eaeba]">
                     Thiệp Mời Cưới
                   </span>

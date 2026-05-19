@@ -27,8 +27,8 @@ export default function HeroSection() {
           Thiệp Mời Cưới
         </p>
 
-        <h1 className="wedding-script mb-6 text-6xl leading-none text-white drop-shadow-2xl md:text-9xl">
-          Toản & Dung
+        <h1 className="wedding-script mb-6 text-[#3d5963]! font-semibold! text-6xl leading-none  drop-shadow-2xl md:text-9xl">
+          Dung & Toản
         </h1>
 
         <p className="mx-auto mb-8 max-w-2xl text-lg font-light tracking-[0.22em] text-[#f9f9f9] md:text-2xl">
