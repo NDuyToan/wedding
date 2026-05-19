@@ -5,19 +5,36 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  color: #73777b;
+  font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #3d5963;
+  font-family: var(--font-marmelad), Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 .wedding-script {
-  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+  color: #8eaeba;
+  font-family: var(--font-oooh-baby), "Snell Roundhand", "Apple Chancery", cursive;
   font-weight: 400;
   letter-spacing: 0;
+}
+
+.wedding-accent {
+  font-family: var(--font-bellota-text), var(--font-open-sans), sans-serif;
 }
 
 .gradient-bg {
   background: linear-gradient(
     135deg,
-    rgba(239, 246, 255, 1) 0%,
+    rgba(249, 249, 249, 1) 0%,
     rgba(255, 255, 255, 1) 100%
   );
 }
