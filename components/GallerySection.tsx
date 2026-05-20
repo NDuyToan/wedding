@@ -8,6 +8,14 @@ const images = [
   "/HILI9960.jpg",
   "/HILI9638.jpg",
   "/HILI9999.jpg",
+  "/HILI9620.jpg",
+  "/HILI9714.jpg",
+  "/HILI9761.jpg",
+  "/HILI9801.jpg",
+  "/HILI9925.jpg",
+  "/HILI0026.jpg",
+  "/HILI9388.jpg",
+  "/HILI9454.jpg",
 ];
 
 export default function GallerySection() {
@@ -26,7 +34,7 @@ export default function GallerySection() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl"
+              className="relative aspect-2/3 w-full overflow-hidden rounded-2xl"
             >
               <Image
                 src={image}
